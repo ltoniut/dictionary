@@ -9,7 +9,7 @@ interface IState {
   value: string;
 }
 
-export const AddData = () => {
+export const AddDataForm = () => {
   const [socketUrl] = useState('wss://echo.websocket.org');
   const [messageHistory, setMessageHistory] = useState([]);
   

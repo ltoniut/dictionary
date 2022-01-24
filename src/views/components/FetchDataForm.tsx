@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export const FetchData = () => {
+export const FetchDataForm = () => {
   const [key, setKey] = useState('');
   const [value, setValue] = useState('');
 
