@@ -4,6 +4,7 @@ import {apiRoute} from '../utils';
 import {AppProps, AppStates} from "../../server/domain/IApp";
 import {ITest} from "../../server/domain/ITest";
 import {Put, Post, Get, Delete} from "../Services";
+import { AppForm } from './AppForm';
 
 export default class App extends React.Component<AppProps, AppStates> {
     state: AppStates = {
@@ -20,7 +21,7 @@ export default class App extends React.Component<AppProps, AppStates> {
         try {
             const res: { username: string } = await Get(apiRoute.getRoute('test'))
             this.setState({username: res.username});
-        } catch (e) {
+        } catch (e: any) {
             this.setState({username: e.message});
         }
     }
@@ -39,7 +40,7 @@ export default class App extends React.Component<AppProps, AppStates> {
                     textForPost: res.text,
                     response: res,
                 });
-            } catch (e) {
+            } catch (e: any) {
                 this.setState({textForPost: e.message});
             }
         }
@@ -54,7 +55,7 @@ export default class App extends React.Component<AppProps, AppStates> {
                     {text: textOfPutTest, id: response?._id}
                     );
                 this.setState({textForPut: res.text, response: res});
-            } catch (e) {
+            } catch (e: any) {
                 this.setState({textForPut: e.message});
             }
         } else {
@@ -70,9 +71,9 @@ export default class App extends React.Component<AppProps, AppStates> {
             try {
                 const res: ITest = await Delete(apiRoute.getRoute('test'), {id: response?._id});
                 this.setState({textForDelete: `${res._id} ${res.text}`, response: undefined});
-            } catch (e) {
+            } catch (e: any) {
                 this.setState({textForDelete: e.message});
-            }
+            }alert
         } else {
             this.setState({
                 textForDelete: "You don't have any resource in database to delete. first use post"
@@ -85,6 +86,7 @@ export default class App extends React.Component<AppProps, AppStates> {
         const inputText = "Input text...";
         return (
             <div>
+                <AppForm />
                 <div>
                     <div>
                         <div>

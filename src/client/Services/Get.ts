@@ -12,7 +12,11 @@ export default async function Get(
             },
         });
         return response.json();
-    } catch (e) {
-        throw new Error(e);
+    } catch (e: unknown) {
+        if (typeof e === "string") {
+            throw new Error(e.toUpperCase())
+        } else if (e instanceof Error) {
+            throw e
+        }
     }
 }

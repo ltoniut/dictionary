@@ -3,6 +3,7 @@ import express, {Request, Response, Router, Express} from 'express';
 import router from './route';
 import DBConnect from "./dbConfigs";
 import { RequestHandler } from 'express-serve-static-core';
+import { Server } from 'ws';
 
 // call express
 const app: Express = express(); // define our app using express
@@ -34,5 +35,16 @@ app.use('/api', routes);
 
 // START THE SERVER
 // =============================================================================
-app.listen(port);
+const server = app.listen(port);
 console.log(`App listening on ${port}`);
+
+const wsServer = new Server({ noServer: true });
+wsServer.on('connection', socket => {
+    socket.on('message', message => console.log(message));
+});
+
+server.on('upgrade', (request, socket, head) => {
+    wsServer.handleUpgrade(request, socket, head, (ws) => {
+        wsServer.emit('connection', ws, request);
+    });
+});
