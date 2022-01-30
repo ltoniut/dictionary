@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import useWebSocket from 'react-use-websocket';
+import useWebSocket from 'react-use-websocket';
 
 export const AddDataForm = (): JSX.Element => {
   const [socketUrl] = useState('http://localhost:8080');

@@ -4,7 +4,9 @@ import path from '../route/path';
 
 // Check to see if the requested route has the requested method as well
 export default (req: Request, res: Response, next: (param?: unknown) => void): void => {
-    const route = path(req.url);
+    const routeSubstring = '/' + req.url.split('/').slice(1)[0];
+    console.log(routeSubstring);
+    const route = path(routeSubstring);
     if (route.methods.includes(req.method)) {
         next();   
     } else {

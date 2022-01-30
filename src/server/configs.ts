@@ -2,10 +2,10 @@ import {IConfigs} from "./domain/IConfigs";
 
 export const configs: IConfigs = {
     mongodb: {
-        url: 'localhost',
+        url: '@mediamonkstestdb.sjkf3.mongodb.net',
         port: 27017,
-        username: '',
-        password: '',
-        collection: 'test',
+        username: 'ltoniut',
+        password: 'myPass',
+        collection: 'challengeDB',
     }
 }

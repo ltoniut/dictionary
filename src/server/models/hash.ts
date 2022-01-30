@@ -7,8 +7,11 @@ const {
 } = Database;
 
 const HashSchema: Schema<IHash> = new Schema<IHash>({
-  key: { type: String, required: true },
+  key: { type: String, required: true, unique: true },
   value: { type: String, required: true },
 });
 
-export default model<IHash>("Hash", HashSchema);
+const Hash = model('hash', HashSchema);
+Hash.createCollection;
+
+export default model<IHash>("hash", HashSchema);
