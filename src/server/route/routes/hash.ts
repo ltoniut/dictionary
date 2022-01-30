@@ -2,15 +2,14 @@ import router from '../router';
 import { Hash } from '../../models';
 import {Request, Response} from "express";
 import {IError} from '../../domain/IError';
+import { getHash } from '../../functions/getHash';
 
 
 router.route('/hash')
 .get(async (req: Request, res: Response) => {
     console.log('accessed fetch endpoint');
-    const all = await Hash.find();
-    console.log(all);
 
-    const response = await Hash.findOne({ key: req.body.key })
+    const response = await getHash(req.body.key);
     if (!response) {
         const error : IError = {
             status: 404,

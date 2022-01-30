@@ -2,14 +2,8 @@ import {Ipath, IPathRoute} from "../domain/IPath";
 
 function path(url: string): IPathRoute {
     const allRoutes: Ipath = {
-        "/test": {
-            methods: ["POST", "GET", "PUT", "DELETE"]
-        },
         "/hash": {
             methods: ["GET"]
-        },
-        "/extra": {
-            methods: ["POST", "GET", "PUT"]
         }
     }
     return allRoutes[url];
