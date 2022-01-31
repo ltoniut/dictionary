@@ -108,7 +108,7 @@ module.exports = {
     extensions: ['*', '.ts', '.tsx', '.js', '.jsx', '.json', '.less']
   },
   devServer: {
-    port: 3000,
+    port: 8050,
     open: true,
     proxy: {
       '/api': 'http://localhost:8050'
@@ -148,7 +148,7 @@ The devServer section of webpack.config.js contains the configuration required t
 
 ```javascript
 devServer: {
-    port: 3000,
+    port: 8050,
     open: true,
     proxy: {
         "/api": "http://localhost:8050"
@@ -156,4 +156,4 @@ devServer: {
 }
 ```
 
-[**Port**](https://webpack.js.org/configuration/dev-server/#devserver-port) specifies the Webpack dev server to listen on this particular port (3000 in this case). When [**open**](https://webpack.js.org/configuration/dev-server/#devserver-open) is set to true, it will automatically open the home page on start-up. [Proxying](https://webpack.js.org/configuration/dev-server/#devserver-proxy) URLs can be useful when you have a separate API backend development server, and you want to send API requests on the same domain.
+[**Port**](https://webpack.js.org/configuration/dev-server/#devserver-port) specifies the Webpack dev server to listen on this particular port (8050 in this case). When [**open**](https://webpack.js.org/configuration/dev-server/#devserver-open) is set to true, it will automatically open the home page on start-up. [Proxying](https://webpack.js.org/configuration/dev-server/#devserver-proxy) URLs can be useful when you have a separate API backend development server, and you want to send API requests on the same domain.

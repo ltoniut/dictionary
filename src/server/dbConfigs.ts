@@ -1,6 +1,6 @@
 import mongoose, {Connection, Mongoose} from 'mongoose';
 import {configs} from './configs';
-import {IConfigs} from "./domain/IConfigs";
+import {IConfigs} from './domain/IConfigs';
 
 class Database {
     private readonly _config: IConfigs;
@@ -24,7 +24,7 @@ class Database {
         const db: Connection = this._mongo.connection;
         db.on('error', console.error.bind(console, 'connection error:'));
         db.once('open', () => {
-            console.log("connected")
+            console.log('connected')
         })
         return mongoose;
     }

@@ -1,6 +1,6 @@
-import Database from "../dbConfigs";
-import { Schema } from "mongoose";
-import { IHash } from "../domain/IHash";
+import Database from '../dbConfigs';
+import { Schema } from 'mongoose';
+import { IHash } from '../domain/IHash';
 
 const {
   mongo: { model },
@@ -14,4 +14,4 @@ const HashSchema: Schema<IHash> = new Schema<IHash>({
 const Hash = model('hash', HashSchema);
 Hash.createCollection;
 
-export default model<IHash>("hash", HashSchema);
+export default model<IHash>('hash', HashSchema);

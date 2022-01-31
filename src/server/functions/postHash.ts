@@ -1,5 +1,4 @@
-import { IError } from "../domain/IError";
-import Hash from "../models/hash";
+import Hash from '../models/hash';
 
 export const postHash = async (req: { key: string; value: string }) => {
   const all = await Hash.find();

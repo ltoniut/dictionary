@@ -1,11 +1,12 @@
-import {IConfigs} from "./domain/IConfigs";
+import {IConfigs} from './domain/IConfigs';
+import * as config from '../../config/config';
 
 export const configs: IConfigs = {
     mongodb: {
-        url: '@mediamonkstestdb.sjkf3.mongodb.net',
-        port: 27017,
-        username: 'ltoniut',
-        password: 'myPass',
-        collection: 'challengeDB',
+        url: config.DATABASE_URL,
+        port: config.PORT,
+        username: config.USERNAME,
+        password: config.PASSWORD,
+        collection: config.COLLECTION,
     }
 }

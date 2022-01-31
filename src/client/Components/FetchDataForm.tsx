@@ -9,8 +9,8 @@ export const FetchDataForm = (): JSX.Element => {
 
   const handleSubmit = async (event: { preventDefault: () => void; }) => {
     try {
-        const res: { value: string } = await Get(apiRoute.getRoute(`hash/${key}`));
-        setValue(res.value);
+        const res: { response: { value: string } } = await Get(apiRoute.getRoute(`hash/${key}`));
+        setValue(res.response.value);
     } catch (e: any) {
       setValue(e.message);
     }
@@ -20,7 +20,7 @@ export const FetchDataForm = (): JSX.Element => {
 
   return (
     <div>
-      <h2>Add hash</h2>
+      <h2>Get hash</h2>
       <form id="form">
         <span>
           Key: <input type="text" value={key} onChange={ text => setKey(text.target.value)} />

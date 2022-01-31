@@ -1,21 +1,28 @@
 import React, { useState } from 'react';
-import useWebSocket from 'react-use-websocket';
+import useWebSocket, { ReadyState } from 'react-use-websocket';
 
 export const AddDataForm = (): JSX.Element => {
   const [socketUrl] = useState('http://localhost:8080');
   
   const [key, setKey] = useState('');
   const [value, setValue] = useState('');
-/*
+
   const {
-    sendMessage,
-    lastMessage,
+    sendJsonMessage,
     readyState,
   } = useWebSocket(socketUrl);
-*/
+
+  const connectionStatus = {
+    [ReadyState.CONNECTING]: 'Connecting',
+    [ReadyState.OPEN]: 'Open',
+    [ReadyState.CLOSING]: 'Closing',
+    [ReadyState.CLOSED]: 'Closed',
+    [ReadyState.UNINSTANTIATED]: 'Uninstantiated',
+  }[readyState];
+
   const handleSubmit = (event: { preventDefault: () => void; }) => {
     const data = { key, value };
-    // Submit to webSocket
+    sendJsonMessage({name: 'addHash', params: { data }});
     alert('An entry was submitted: ' + key);
 
     event.preventDefault();
@@ -46,6 +53,7 @@ export const AddDataForm = (): JSX.Element => {
           <span>
             <input type="button" value="Submit" onClick={handleSubmit} />
           </span>
+          <br />
         </form>
       </div>
     );

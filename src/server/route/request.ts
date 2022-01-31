@@ -1,4 +1,4 @@
 export interface FunctionRequest {
     name: string,
-    values: Record<string, string>
+    params: Record<string, string>
 }

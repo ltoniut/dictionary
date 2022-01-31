@@ -1,4 +1,4 @@
-import Hash from "./hash";
+import Hash from './hash';
 
 export {
     Hash,
