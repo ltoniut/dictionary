@@ -9,16 +9,7 @@ export const AddDataForm = (): JSX.Element => {
 
   const {
     sendJsonMessage,
-    readyState,
   } = useWebSocket(socketUrl);
-
-  const connectionStatus = {
-    [ReadyState.CONNECTING]: 'Connecting',
-    [ReadyState.OPEN]: 'Open',
-    [ReadyState.CLOSING]: 'Closing',
-    [ReadyState.CLOSED]: 'Closed',
-    [ReadyState.UNINSTANTIATED]: 'Uninstantiated',
-  }[readyState];
 
   const handleSubmit = (event: { preventDefault: () => void; }) => {
     const data = { key, value };
